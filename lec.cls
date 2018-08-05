@@ -1,4 +1,6 @@
-\ProvidesClass{lec}[2018-04-25 v1.0 Lecture Notes]
+% This LaTeX class is adapted from a template for lecture notes for CS267,
+% Applications of Parallel Computing, UC Berkeley EECS Department.
+\ProvidesClass{lec}[2018-07-18 v1.1 Lecture Notes]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -25,13 +27,10 @@
 \RequirePackage{amssymb}
 \RequirePackage{relsize}
 \RequirePackage{graphicx}
+\RequirePackage{url}
 
-%
-% The following commands set up the lecnum (lecture number)
-% counter and make various numbering schemes work relative
-% to the lecture number.
-%
 \newcounter{lecnum}
+\newcounter{labnum}
 \renewcommand{\thepage}{\thelecnum-\arabic{page}}
 \renewcommand{\thesection}{\thelecnum.\arabic{section}}
 \renewcommand{\theequation}{\thelecnum.\arabic{equation}}
@@ -48,19 +47,23 @@
 \newcommand{\setlecturer}[1]{\def\@lecturer{#1}}
 \newcommand{\show@lecturer}{\@lecturer}
 
+\def\@labTA{None}
+\newcommand{\setlabTA}[1]{\def\@labTA{#1}}
+\newcommand{\show@labTA}{\@labTA}
+
 \def\@semester{None}
 \newcommand{\setsemester}[1]{\def\@semester{#1}}
 \newcommand{\show@semester}{\@semester}
 
-%
-% The following macro is used to generate the header.
-%
-\newcommand{\lecture}[3]{
+\setcounter{lecnum}{0}
+\setcounter{labnum}{0}
+
+\newcommand{\lecture}[2]{
 	\pagestyle{myheadings}
 	\thispagestyle{plain}
 	\newpage
+	\stepcounter{lecnum}
 	\setcounter{section}{0}
-	\setcounter{lecnum}{#1}
 	\setcounter{page}{1}
 	\noindent
 	\begin{center}
@@ -69,21 +72,55 @@
 				\hbox to 6.28in { {\bf \show@course
 						\hfill \show@semester} }
 				\vspace{4mm}
-				\hbox to 6.28in { {\Large \hfill Lecture #1: #3  \hfill} }
+				\hbox to 6.28in { {\Large \hfill Lecture \thelecnum: #2  \hfill} }
 				\vspace{2mm}
-				\hbox to 6.28in { {\it Lecturer: \show@lecturer \hfill #2 \hfill Scribe: Aditya Sengupta} }
+				\hbox to 6.28in { {\it Lecturer: \show@lecturer \hfill #1 \hfill Scribe: Aditya Sengupta} }
 				\vspace{2mm}}
 		}
 	\end{center}
-	\markboth{Lecture #1: #2}{Lecture #1: #2}
-	
-	\ifnum#1=1 {\bf Note}: {\it LaTeX template courtesy of UC Berkeley EECS dept.} \fi
-	
-	%{\bf Disclaimer}: {\it These notes have not been subjected to the
-	%usual scrutiny reserved for formal publications.  They may be distributed
-	%outside this class only with the permission of the Instructor.}
-	%\vspace*{4mm}
+	\markboth{Lecture \thelecnum: #1}{Lecture \thelecnum: #1}
+	\renewcommand{\thepage}{Lecture \thelecnum-\arabic{page}}
+	\renewcommand{\thesection}{\thelecnum.\arabic{section}}
+	\renewcommand{\theequation}{\thelecnum.\arabic{equation}}
+	\renewcommand{\thefigure}{\thelecnum.\arabic{figure}}
+	\renewcommand{\thetable}{\thelecnum.\arabic{table}}
+
+	\if{\value{\lecnum}=1}
+		{\bf Note}: {\it LaTeX template courtesy of UC Berkeley EECS dept.}
+	\fi
 }
+
+\newcommand{\lab}[2]{
+	\pagestyle{myheadings}
+	\thispagestyle{plain}
+	\newpage
+	\stepcounter{labnum}
+	\setcounter{section}{0}
+	\setcounter{page}{1}
+	\noindent
+	\begin{center}
+		\framebox{
+			\vbox{\vspace{2mm}
+				\hbox to 6.28in { {\bf \show@course
+						\hfill \show@semester} }
+				\vspace{4mm}
+				\hbox to 6.28in { {\Large \hfill Lab \thelabnum: #2  \hfill} }
+				\vspace{2mm}
+				\hbox to 6.28in { {\it Lab Instructor: \show@labTA \hfill #1 \hfill Scribe: Aditya Sengupta} }
+				\vspace{2mm}}
+		}
+	\end{center}
+	\markboth{Lab \thelabnum: #1}{Lab \thelabnum: #1}
+	\renewcommand{\thepage}{Lab \thelabnum-\arabic{page}}
+	\renewcommand{\thesection}{\thelabnum.\arabic{section}}
+	\renewcommand{\theequation}{\thelabnum.\arabic{equation}}
+	\renewcommand{\thefigure}{\thelabnum.\arabic{figure}}
+	\renewcommand{\thetable}{\thelabnum.\arabic{table}}
+	\if{\value{\labnum}=1}
+		{\bf Note}: {\it LaTeX template courtesy of UC Berkeley EECS dept.}
+	\fi
+}
+
 %
 % Convention for citations is authors' initials followed by the year.
 % For example, to cite a paper by Leighton and Maggs you would type
