@@ -1,13 +1,19 @@
-\ProvidesClass{hw}[2018-04-26 v1.0 Homework]
+\ProvidesClass{hw}[2018-08-26 v1.3 Homework]
 \NeedsTeXFormat{LaTeX2e}
 
-\usepackage[margin=1in]{geometry} 
+\DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
+		\PassOptionsToClass{\CurrentOption}{article}}}
+\ProcessOptions \relax
+\LoadClass{article}
+
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{tikz}
 \usetikzlibrary{quotes,angles}
 \usepackage{esint}
 \usepackage[american]{circuitikz}
 \usepackage{graphicx}
+\usepackage{enumerate}
 
 \newenvironment{theorem}[2][Theorem]{\begin{trivlist}
 		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
@@ -21,6 +27,21 @@
 		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 \newenvironment{corollary}[2][Corollary]{\begin{trivlist}
 		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\def\@course{None}
+\newcommand{\setcourse}[1]{\def\@course{#1}}
+\newcommand{\show@course}{\@course}
+
+\def\@semester{None}
+\newcommand{\setsemester}[1]{\def\@semester{#1}}
+\newcommand{\show@semester}{\@semester}
+
+\def\@hwnum{None}
+\newcommand{\sethwnum}[1]{\def\@hwnum{#1}}
+\newcommand{\show@hwnum}{\@hwnum}
+
+\title{\bf \show@course, Homework \show@hwnum}
+\author{Aditya Sengupta}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}

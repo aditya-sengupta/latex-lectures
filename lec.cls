@@ -121,12 +121,14 @@
 	\fi
 }
 
-%
-% Convention for citations is authors' initials followed by the year.
-% For example, to cite a paper by Leighton and Maggs you would type
-% \cite{LM89}, and to cite a paper by Strassen you would type \cite{S69}.
-% (To avoid bibliography problems, for now we redefine the \cite command.)
-% Also commands that create a suitable format for the reference list.
+\newcommand{\skiplab}{
+	\stepcounter{labnum}
+}
+
+\newcommand{\skiplec}{
+	\stepcounter{lecnum}
+}
+
 \renewcommand{\cite}[1]{[#1]}
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
