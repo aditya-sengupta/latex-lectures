@@ -14,6 +14,7 @@
 \usepackage[american]{circuitikz}
 \usepackage{graphicx}
 \usepackage{enumerate}
+\usepackage{braket}
 
 \newenvironment{theorem}[2][Theorem]{\begin{trivlist}
 		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
@@ -55,7 +56,6 @@
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \renewcommand{\det}[1]{\begin{vmatrix}#1\end{vmatrix}}
 \newcommand{\ul}[1]{\underline{#1}}
-\newcommand{\set}[1]{\left\{{#1}\right\}}
 \newcommand{\lst}[1]{\left[{#1}\right]}
 \newcommand{\parens}[1]{\left({#1}\right)}
 \newcommand{\ang}[1]{\left\langle#1\right\rangle}
@@ -64,3 +64,4 @@
 \renewcommand{\div}{\vec{\grad}}
 \newcommand{\pd}{\partial}
 \newcommand{\p}[1]{\frac{\pd}{\pd #1}}
+\newcommand{\eq}[1]{\begin{align} #1 \end{align}}

@@ -28,6 +28,7 @@
 \RequirePackage{relsize}
 \RequirePackage{graphicx}
 \RequirePackage{url}
+\RequirePackage{braket}
 
 \newcounter{lecnum}
 \newcounter{labnum}
@@ -74,11 +75,12 @@
 				\vspace{4mm}
 				\hbox to 6.28in { {\Large \hfill Lecture \thelecnum: #2  \hfill} }
 				\vspace{2mm}
-				\hbox to 6.28in { {\it Lecturer: \show@lecturer \hfill #1 \hfill Scribe: Aditya Sengupta} }
+				\hbox to 6.28in { {\it Lecturer: \show@lecturer \hfill #1 \hfill Aditya Sengupta} }
 				\vspace{2mm}}
 		}
 	\end{center}
 	\markboth{Lecture \thelecnum: #1}{Lecture \thelecnum: #1}
+	\setcounter{equation}{0}
 	\renewcommand{\thepage}{Lecture \thelecnum-\arabic{page}}
 	\renewcommand{\thesection}{\thelecnum.\arabic{section}}
 	\renewcommand{\theequation}{\thelecnum.\arabic{equation}}
@@ -106,7 +108,7 @@
 				\vspace{4mm}
 				\hbox to 6.28in { {\Large \hfill Lab \thelabnum: #2  \hfill} }
 				\vspace{2mm}
-				\hbox to 6.28in { {\it Lab Instructor: \show@labTA \hfill #1 \hfill Scribe: Aditya Sengupta} }
+				\hbox to 6.28in { {\it Lab Instructor: \show@labTA \hfill #1 \hfill Aditya Sengupta} }
 				\vspace{2mm}}
 		}
 	\end{center}
@@ -142,6 +144,8 @@
 			\setlength{\labelwidth}{1.6truecm}}}
 	\def\endrefs{\end{list}}
 \def\bibentry#1{\item[\hbox{[#1]}]}
+
+%Deprecated
 \def\dmtx(#1, #2, #3, #4){
 	$$
 	\begin{bmatrix}
@@ -190,7 +194,6 @@
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \renewcommand{\det}[1]{\begin{vmatrix}#1\end{vmatrix}}
 \newcommand{\ul}[1]{\underline{#1}}
-\newcommand{\set}[1]{\left\{{#1}\right\}}
 \newcommand{\lst}[1]{\left[{#1}\right]}
 \newcommand{\parens}[1]{\left({#1}\right)}
 \newcommand{\ang}[1]{\left\langle#1\right\rangle}
@@ -199,6 +202,7 @@
 \renewcommand{\div}{\vec{\grad}}
 \newcommand{\pd}{\partial}
 \newcommand{\p}[1]{\frac{\pd}{\pd #1}}
+\newcommand{\eq}[1]{\begin{align} #1 \end{align}}
 
 \newcommand{\fig}[3]{
 	\vspace{#2}
