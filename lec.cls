@@ -1,6 +1,6 @@
 % This LaTeX class is adapted from a template for lecture notes for CS267,
 % Applications of Parallel Computing, UC Berkeley EECS Department.
-\ProvidesClass{lec}[2019-01-09 v1.2 Lecture Notes]
+\ProvidesClass{lec}[2019-01-09 v1.3 Lecture Notes]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -59,6 +59,8 @@
 \setcounter{lecnum}{0}
 \setcounter{labnum}{0}
 
+
+
 \newcommand{\lecture}[2]{
 	\pagestyle{myheadings}
 	\thispagestyle{plain}
@@ -87,8 +89,8 @@
 	\renewcommand{\thefigure}{\thelecnum.\arabic{figure}}
 	\renewcommand{\thetable}{\thelecnum.\arabic{table}}
 
-	\if{\value{\lecnum}=1}
-		{\bf Note}: {\it LaTeX template courtesy of UC Berkeley EECS dept.}
+	\ifnum\value{lecnum}=1
+		{\bf Note}: {\it \LaTeX format adapted from template courtesy of UC Berkeley EECS dept.}
 	\fi
 }
 
@@ -144,44 +146,6 @@
 			\setlength{\labelwidth}{1.6truecm}}}
 	\def\endrefs{\end{list}}
 \def\bibentry#1{\item[\hbox{[#1]}]}
-
-%Deprecated
-\def\dmtx(#1, #2, #3, #4){
-	$$
-	\begin{bmatrix}
-	#1 & #2 \\
-	#3 & #4
-	\end{bmatrix}
-	$$
-}
-
-\def\tmtx(#1, #2, #3, #4, #5, #6, #7, #8, #9){
-	$$
-	\begin{bmatrix}
-	#1 & #2 & #3 \\
-	#4 & #5 & #6 \\
-	#7 & #8 & #9
-	\end{bmatrix}
-	$$
-}
-
-\def\tdet(#1, #2, #3, #4, #5, #6, #7, #8, #9){
-	$$
-	\begin{vmatrix}
-	#1 & #2 & #3 \\
-	#4 & #5 & #6 \\
-	#7 & #8 & #9
-	\end{vmatrix}
-	$$
-}
-
-\def\didmtx{
-	\dmtx{1, 0, 0, 1}
-}
-\def\tidmtx{
-	\tmtx(1, 0, 0, 0, 1, 0, 0, 0, 1)
-}
-%end Deprecated
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
