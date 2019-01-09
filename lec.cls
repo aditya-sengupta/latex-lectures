@@ -1,6 +1,6 @@
 % This LaTeX class is adapted from a template for lecture notes for CS267,
 % Applications of Parallel Computing, UC Berkeley EECS Department.
-\ProvidesClass{lec}[2018-07-18 v1.1 Lecture Notes]
+\ProvidesClass{lec}[2019-01-09 v1.2 Lecture Notes]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -118,7 +118,7 @@
 	\renewcommand{\theequation}{\thelabnum.\arabic{equation}}
 	\renewcommand{\thefigure}{\thelabnum.\arabic{figure}}
 	\renewcommand{\thetable}{\thelabnum.\arabic{table}}
-	\if{\value{\labnum}=1}
+	\ifnum\value{labnum}=1
 		{\bf Note}: {\it LaTeX template courtesy of UC Berkeley EECS dept.}
 	\fi
 }
@@ -181,6 +181,7 @@
 \def\tidmtx{
 	\tmtx(1, 0, 0, 0, 1, 0, 0, 0, 1)
 }
+%end Deprecated
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}

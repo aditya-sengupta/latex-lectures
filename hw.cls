@@ -7,14 +7,18 @@
 \LoadClass{article}
 
 \usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lipsum}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{tikz}
 \usetikzlibrary{quotes,angles}
 \usepackage{esint}
 \usepackage[american]{circuitikz}
 \usepackage{graphicx}
-\usepackage{enumerate}
+\usepackage{enumerate,enumitem}
 \usepackage{braket}
+
 
 \newenvironment{theorem}[2][Theorem]{\begin{trivlist}
 		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
@@ -65,3 +69,26 @@
 \newcommand{\pd}{\partial}
 \newcommand{\p}[1]{\frac{\pd}{\pd #1}}
 \newcommand{\eq}[1]{\begin{align} #1 \end{align}}
+
+\newcounter{probnum}
+\newcounter{pn}[probnum] %partnum
+
+\newcommand{\prob}[2]{
+	\medskip
+	\vspace{1cm}
+	\stepcounter{probnum}
+	\theprobnum. #1.
+	\newline
+	\textit{#2}
+	\newline
+}
+
+\def\sp{ %subpart
+	\stepcounter{pn}
+	\medskip
+	(\alph{pn})
+}
+
+\def\spq#1{ %subpart-question
+	\sp \textit{#1}
+}
