@@ -1,4 +1,4 @@
-\ProvidesClass{hw}[2018-08-26 v1.3 Homework]
+\ProvidesClass{hw}[2019-01-09 v2.2 Homework]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
