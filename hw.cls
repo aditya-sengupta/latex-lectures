@@ -1,4 +1,4 @@
-\ProvidesClass{hw}[2019-01-09 v2.2 Homework]
+\ProvidesClass{hw}[2019-01-27 v2.3 Homework]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -45,7 +45,10 @@
 \newcommand{\sethwnum}[1]{\def\@hwnum{#1}}
 \newcommand{\show@hwnum}{\@hwnum}
 
-\title{\bf \show@course, Homework \show@hwnum}
+\def\shrug{\texttt{\raisebox{0.75em}{\char`\_}\char`\\\char`\_\kern-0.5ex(\kern-0.25ex\raisebox{0.25ex}{\rotatebox{45}{\raisebox{-.75ex}"\kern-1.5ex\rotatebox{-90})}}\kern-0.5ex)\kern-0.5ex\char`\_/\raisebox{0.75em}{\char`\_}}}
+% credit: Sebastien Whetsel
+
+\title{\bf \show@course\\ Homework \show@hwnum}
 \author{Aditya Sengupta}
 
 \newcommand{\R}{\mathbb{R}}
@@ -81,6 +84,11 @@
 	\newline
 	\textit{#2}
 	\newline
+}
+
+\newcommand{\probn}[1]{
+	\medskip
+	\textbf{#1.}
 }
 
 \def\sp{ %subpart

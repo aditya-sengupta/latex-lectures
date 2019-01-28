@@ -1,6 +1,6 @@
 % This LaTeX class is adapted from a template for lecture notes for CS267,
 % Applications of Parallel Computing, UC Berkeley EECS Department.
-\ProvidesClass{lec}[2019-01-09 v1.3 Lecture Notes]
+\ProvidesClass{lec}[2019-01-27 v1.4 Lecture Notes]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -39,6 +39,7 @@
 \renewcommand{\thetable}{\thelecnum.\arabic{table}}
 \newtheorem{thm}{Theorem}
 \def\shrug{\texttt{\raisebox{0.75em}{\char`\_}\char`\\\char`\_\kern-0.5ex(\kern-0.25ex\raisebox{0.25ex}{\rotatebox{45}{\raisebox{-.75ex}"\kern-1.5ex\rotatebox{-90})}}\kern-0.5ex)\kern-0.5ex\char`\_/\raisebox{0.75em}{\char`\_}}}
+% credit: Sebastien Whetsel
 
 \def\@course{None}
 \newcommand{\setcourse}[1]{\def\@course{#1}}
@@ -150,6 +151,9 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\la}{\mathcal{L}} 
 \newcommand{\Proj}{\mathrm{proj}}
 \newcommand{\Perp}{\mathrm{perp}}
 \newcommand{\proj}{\mathrm{proj}}
@@ -164,9 +168,10 @@
 \newcommand{\ang}[1]{\left\langle#1\right\rangle}
 \newcommand{\ve}{\varepsilon_0}
 \newcommand{\grad}{\nabla}
-\renewcommand{\div}{\vec{\grad}}
+\newcommand{\del}{\vec{\grad}}
 \newcommand{\pd}{\partial}
-\newcommand{\p}[1]{\frac{\pd}{\pd #1}}
+\newcommand{\p}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\pn}[2]{\frac{\pd #1}{\pd #2}}
 \newcommand{\eq}[1]{\begin{align} #1 \end{align}}
 
 \newcommand{\fig}[3]{
