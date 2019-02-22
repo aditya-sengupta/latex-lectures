@@ -1,4 +1,4 @@
-\ProvidesClass{hw}[2019-01-27 v2.3 Homework]
+\ProvidesClass{hw}[2019-02-22 v2.4 Homework]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -14,11 +14,10 @@
 \usepackage{tikz}
 \usetikzlibrary{quotes,angles}
 \usepackage{esint}
-\usepackage[american]{circuitikz}
+\usepackage[siunitx]{circuitikz}
 \usepackage{graphicx}
 \usepackage{enumerate,enumitem}
 \usepackage{braket}
-
 
 \newenvironment{theorem}[2][Theorem]{\begin{trivlist}
 		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
@@ -45,15 +44,23 @@
 \newcommand{\sethwnum}[1]{\def\@hwnum{#1}}
 \newcommand{\show@hwnum}{\@hwnum}
 
+\def\@assntype{None}
+\newcommand{\setassntype}[1]{\def\@assntype{#1}}
+\newcommand{\show@assntype}{\@assntype}
+
 \def\shrug{\texttt{\raisebox{0.75em}{\char`\_}\char`\\\char`\_\kern-0.5ex(\kern-0.25ex\raisebox{0.25ex}{\rotatebox{45}{\raisebox{-.75ex}"\kern-1.5ex\rotatebox{-90})}}\kern-0.5ex)\kern-0.5ex\char`\_/\raisebox{0.75em}{\char`\_}}}
 % credit: Sebastien Whetsel
 
-\title{\bf \show@course\\ Homework \show@hwnum}
+\setassntype{Homework}
+
+\title{\bf \show@course\\ \show@assntype \ \show@hwnum}
 \author{Aditya Sengupta}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}} 
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Proj}{\mathrm{proj}}
 \newcommand{\Perp}{\mathrm{perp}}
 \newcommand{\proj}{\mathrm{proj}}
@@ -65,22 +72,29 @@
 \newcommand{\ul}[1]{\underline{#1}}
 \newcommand{\lst}[1]{\left[{#1}\right]}
 \newcommand{\parens}[1]{\left({#1}\right)}
-\newcommand{\ang}[1]{\left\langle#1\right\rangle}
+\renewcommand{\ang}[1]{\left\langle#1\right\rangle}
 \newcommand{\ve}{\varepsilon_0}
 \newcommand{\grad}{\nabla}
-\renewcommand{\div}{\vec{\grad}}
 \newcommand{\pd}{\partial}
+\newcommand{\del}{\vec{\grad}}
 \newcommand{\p}[1]{\frac{\pd}{\pd #1}}
 \newcommand{\eq}[1]{\begin{align} #1 \end{align}}
+\renewcommand{\eqno}[1]{\begin{align*} #1 \end{align*}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+% credit: https://tex.stackexchange.com/questions/22100/the-bar-and-overline-commands
+\newcommand{\la}{\mathcal{L}}
+\newcommand{\pn}[2]{\frac{\pd #1}{\pd #2}}
+\def\sr{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{ScriptR}}$}} \hspace{-.04in}}
+\def\brcurs{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{BoldR}}$}} \hspace{-.04in}}
+\def\hrcurs{{\mbox{$\hat \brcurs$}}}
+% from David Griffiths' sample
 
 \newcounter{probnum}
-\newcounter{pn}[probnum] %partnum
+\newcounter{ptn}[probnum] %partnum
 
 \newcommand{\prob}[2]{
-	\medskip
-	\vspace{1cm}
 	\stepcounter{probnum}
-	\theprobnum. #1.
+	\theprobnum. #1
 	\newline
 	\textit{#2}
 	\newline
@@ -92,9 +106,8 @@
 }
 
 \def\sp{ %subpart
-	\stepcounter{pn}
-	\medskip
-	(\alph{pn})
+	\stepcounter{ptn}
+	(\alph{ptn})
 }
 
 \def\spq#1{ %subpart-question

@@ -1,6 +1,6 @@
 % This LaTeX class is adapted from a template for lecture notes for CS267,
 % Applications of Parallel Computing, UC Berkeley EECS Department.
-\ProvidesClass{lec}[2019-01-27 v1.4 Lecture Notes]
+\ProvidesClass{lec}[2019-02-22 v1.5 Lecture Notes]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -32,6 +32,7 @@
 
 \newcounter{lecnum}
 \newcounter{labnum}
+\newcounter{fignum}[lecnum]
 \renewcommand{\thepage}{\thelecnum-\arabic{page}}
 \renewcommand{\thesection}{\thelecnum.\arabic{section}}
 \renewcommand{\theequation}{\thelecnum.\arabic{equation}}
@@ -59,8 +60,6 @@
 
 \setcounter{lecnum}{0}
 \setcounter{labnum}{0}
-
-
 
 \newcommand{\lecture}[2]{
 	\pagestyle{myheadings}
@@ -91,7 +90,7 @@
 	\renewcommand{\thetable}{\thelecnum.\arabic{table}}
 
 	\ifnum\value{lecnum}=1
-		{\bf Note}: {\it \LaTeX format adapted from template courtesy of UC Berkeley EECS dept.}
+		{\bf Note}: {\it \LaTeX \ format adapted from template courtesy of UC Berkeley EECS dept.}
 	\fi
 }
 
@@ -122,7 +121,7 @@
 	\renewcommand{\thefigure}{\thelabnum.\arabic{figure}}
 	\renewcommand{\thetable}{\thelabnum.\arabic{table}}
 	\ifnum\value{labnum}=1
-		{\bf Note}: {\it LaTeX template courtesy of UC Berkeley EECS dept.}
+		{\bf Note}: {\it \LaTeX format adapted from template courtesy of UC Berkeley EECS dept.}
 	\fi
 }
 
@@ -153,7 +152,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
-\newcommand{\la}{\mathcal{L}} 
+\newcommand{\la}{\mathcal{L}}
 \newcommand{\Proj}{\mathrm{proj}}
 \newcommand{\Perp}{\mathrm{perp}}
 \newcommand{\proj}{\mathrm{proj}}
@@ -173,6 +172,13 @@
 \newcommand{\p}[1]{\frac{\partial}{\partial #1}}
 \newcommand{\pn}[2]{\frac{\pd #1}{\pd #2}}
 \newcommand{\eq}[1]{\begin{align} #1 \end{align}}
+\renewcommand{\eqno}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+% credit: https://tex.stackexchange.com/questions/22100/the-bar-and-overline-commands
+\def\sr{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{ScriptR}}$}} \hspace{-.04in}}
+\def\brcurs{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{BoldR}}$}}}
+\def\hrcurs{{\mbox{$\hat \brcurs$}}}
+% from David Griffiths' sample
 
 \newcommand{\fig}[3]{
 	\vspace{#2}
