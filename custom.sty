@@ -1,0 +1,43 @@
+\def\shrug{\texttt{\raisebox{0.75em}{\char`\_}\char`\\\char`\_\kern-0.5ex(\kern-0.25ex\raisebox{0.25ex}{\rotatebox{45}{\raisebox{-.75ex}"\kern-1.5ex\rotatebox{-90})}}\kern-0.5ex)\kern-0.5ex\char`\_/\raisebox{0.75em}{\char`\_}}}
+% credit: Sebastien Whetsel
+
+\RequirePackage{amsmath,amsthm,amssymb}
+\usepackage{enumerate,enumitem}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}} 
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Proj}{\mathrm{proj}}
+\newcommand{\Perp}{\mathrm{perp}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\Span}{\mathrm{span}}
+\newcommand{\Null}{\mathrm{null}}
+\newcommand{\Rank}{\mathrm{rank}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\renewcommand{\det}[1]{\begin{vmatrix}#1\end{vmatrix}}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\lst}[1]{\left[{#1}\right]}
+\newcommand{\parens}[1]{\left({#1}\right)}
+\newcommand{\ang}[1]{\left\langle#1\right\rangle}
+\newcommand{\ve}{\varepsilon_0}
+\newcommand{\grad}{\nabla}
+\newcommand{\pd}{\partial}
+\newcommand{\del}{\vec{\grad}}
+\newcommand{\p}[1]{\frac{\pd}{\pd #1}}
+\newcommand{\eq}[1]{\begin{eqnarray} #1 \end{eqnarray}}
+\renewcommand{\eqno}[1]{\begin{eqnarray*} #1 \end{eqnarray*}}
+\newcommand{\spleq}[1]{\begin{equation}\begin{split} #1 \end{split}\end{equation}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+% credit: https://tex.stackexchange.com/questions/22100/the-bar-and-overline-commands
+\newcommand{\la}{\mathcal{L}}
+\newcommand{\pn}[2]{\frac{\pd #1}{\pd #2}}
+\def\sr{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{ScriptR}}$}} \hspace{-.04in}}
+\def\brcurs{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{BoldR}}$}} \hspace{-.04in}}
+\def\hrcurs{{\mbox{$\hat \brcurs$}}}
+% from David Griffiths' sample
+\DeclareMathOperator{\Ker}{Ker}
+
+\newtheorem{definition}{Definition}%[section]
+%\newenvironment{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}
