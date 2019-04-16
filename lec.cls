@@ -1,6 +1,6 @@
 % This LaTeX class is adapted from a template for lecture notes for CS267,
 % Applications of Parallel Computing, UC Berkeley EECS Department.
-\ProvidesClass{lec}[2019-03-08 v2.1 Lecture Notes]
+\ProvidesClass{lec}[2019-04-16 v2.2 Lecture Notes]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -17,29 +17,17 @@
 \setlength{\parindent}{0 in}
 \setlength{\parskip}{0.1 in}
 
-\RequirePackage{graphicx}
 \RequirePackage{lipsum}
-\RequirePackage{tikz}
 \RequirePackage{fancyvrb}
-\RequirePackage{amssymb}
-\RequirePackage{relsize}
-\RequirePackage{graphicx}
+\RequirePackage{fancyhdr}
 \RequirePackage{url}
-\RequirePackage{braket}
 \RequirePackage{custom}
-% not yet removing package dependencies before deprecation
+% to do: separate content dependencies (in 'custom') from format dependencies (here)
 
 \newcounter{lecnum}
 \newcounter{labnum}
 \newcounter{fignum}[lecnum]
-\renewcommand{\thepage}{\thelecnum-\arabic{page}}
-\renewcommand{\thesection}{\thelecnum.\arabic{section}}
-\renewcommand{\theequation}{\thelecnum.\arabic{equation}}
-\renewcommand{\thefigure}{\thelecnum.\arabic{figure}}
-\renewcommand{\thetable}{\thelecnum.\arabic{table}}
-\newtheorem{thm}{Theorem}
-\def\shrug{\texttt{\raisebox{0.75em}{\char`\_}\char`\\\char`\_\kern-0.5ex(\kern-0.25ex\raisebox{0.25ex}{\rotatebox{45}{\raisebox{-.75ex}"\kern-1.5ex\rotatebox{-90})}}\kern-0.5ex)\kern-0.5ex\char`\_/\raisebox{0.75em}{\char`\_}}}
-% credit: Sebastien Whetsel
+
 
 \def\@course{None}
 \newcommand{\setcourse}[1]{\def\@course{#1}}
@@ -60,13 +48,18 @@
 \setcounter{lecnum}{0}
 \setcounter{labnum}{0}
 
-\newcommand{\lecture}[2]{
+%\makeatletter \let\l@section\l@subsection \makeatother
+%\makeatletter \let\l@subsection\l@subsubsection \makeatother
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{3.0em}}
+\setcounter{tocdepth}{1}
+\title{Notes for \@course, UC Berkeley \@semester}
+\author{Aditya Sengupta}
+
+\newcommand{\lecheader}[6]{
 	\pagestyle{myheadings}
 	\thispagestyle{plain}
 	\newpage
-	\stepcounter{lecnum}
 	\setcounter{section}{0}
-	\setcounter{page}{1}
 	\noindent
 	\begin{center}
 		\framebox{
@@ -74,54 +67,35 @@
 				\hbox to 6.28in { {\bf \show@course
 						\hfill \show@semester} }
 				\vspace{4mm}
-				\hbox to 6.28in { {\Large \hfill Lecture \thelecnum: #2  \hfill} }
+				\hbox to 6.28in { {\Large \hfill #4 #3: #2  \hfill} }
 				\vspace{2mm}
-				\hbox to 6.28in { {\it Lecturer: \show@lecturer \hfill #1 \hfill Aditya Sengupta} }
+				\hbox to 6.28in { {\it #5: #6 \hfill #1 \hfill Aditya Sengupta} }
 				\vspace{2mm}}
 		}
 	\end{center}
-	\markboth{Lecture \thelecnum: #1}{Lecture \thelecnum: #1}
+	\markboth{#4 #3: #1}{#4 #3: #1}
 	\setcounter{equation}{0}
-	\renewcommand{\thepage}{Lecture \thelecnum-\arabic{page}}
-	\renewcommand{\thesection}{\thelecnum.\arabic{section}}
-	\renewcommand{\theequation}{\thelecnum.\arabic{equation}}
-	\renewcommand{\thefigure}{\thelecnum.\arabic{figure}}
-	\renewcommand{\thetable}{\thelecnum.\arabic{table}}
+	\renewcommand{\thepage}{\arabic{page}}
+	\renewcommand{\thesection}{#3.\arabic{section}}
+	\renewcommand{\theequation}{#3.\arabic{equation}}
+	\renewcommand{\thefigure}{#3.\arabic{figure}}
+	\renewcommand{\thetable}{#3.\arabic{table}}
+	\rhead{#4 \thepage}
 
-	\ifnum\value{lecnum}=1
+	\ifnum#3=1
 		{\bf Note}: {\it \LaTeX \ format adapted from template courtesy of UC Berkeley EECS dept.}
 	\fi
 }
 
+\newcommand{\lecture}[2]{
+	\stepcounter{lecnum}
+	\lecheader{#1}{#2}{\thelecnum}{Lecture}{Lecturer}{\show@lecturer}
+	\addcontentsline{toc}{section}{\protect\textbf{Lecture \thelecnum: #2}}
+}
+
 \newcommand{\lab}[2]{
-	\pagestyle{myheadings}
-	\thispagestyle{plain}
-	\newpage
 	\stepcounter{labnum}
-	\setcounter{section}{0}
-	\setcounter{page}{1}
-	\noindent
-	\begin{center}
-		\framebox{
-			\vbox{\vspace{2mm}
-				\hbox to 6.28in { {\bf \show@course
-						\hfill \show@semester} }
-				\vspace{4mm}
-				\hbox to 6.28in { {\Large \hfill Lab \thelabnum: #2  \hfill} }
-				\vspace{2mm}
-				\hbox to 6.28in { {\it Lab Instructor: \show@labTA \hfill #1 \hfill Aditya Sengupta} }
-				\vspace{2mm}}
-		}
-	\end{center}
-	\markboth{Lab \thelabnum: #1}{Lab \thelabnum: #1}
-	\renewcommand{\thepage}{Lab \thelabnum-\arabic{page}}
-	\renewcommand{\thesection}{\thelabnum.\arabic{section}}
-	\renewcommand{\theequation}{\thelabnum.\arabic{equation}}
-	\renewcommand{\thefigure}{\thelabnum.\arabic{figure}}
-	\renewcommand{\thetable}{\thelabnum.\arabic{table}}
-	\ifnum\value{labnum}=1
-		{\bf Note}: {\it \LaTeX format adapted from template courtesy of UC Berkeley EECS dept.}
-	\fi
+	\lecheader{#1}{#2}{Lab}{\thelabnum}{Lab Instructor}{\show@labTA}
 }
 
 \newcommand{\skiplab}{
@@ -153,12 +127,3 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
-%\newcommand{\fig}[3]{
-%	\vspace{#2}
-%	\begin{center}
-%		Figure \thelecnum.#1:~#3
-%	\end{center}
-%}
-% deprecated because ew
-
-

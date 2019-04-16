@@ -1,8 +1,12 @@
+%[2019-04-16 v1.1 Custom Style]
+
 \def\shrug{\texttt{\raisebox{0.75em}{\char`\_}\char`\\\char`\_\kern-0.5ex(\kern-0.25ex\raisebox{0.25ex}{\rotatebox{45}{\raisebox{-.75ex}"\kern-1.5ex\rotatebox{-90})}}\kern-0.5ex)\kern-0.5ex\char`\_/\raisebox{0.75em}{\char`\_}}}
 % credit: Sebastien Whetsel
 
-\RequirePackage{amsmath,amsthm,amssymb}
-\usepackage{enumerate,enumitem}
+\RequirePackage{amsmath,amsthm,amssymb,braket}
+\RequirePackage{enumerate,enumitem}
+\RequirePackage{physics}
+\RequirePackage{tikz}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
@@ -22,17 +26,17 @@
 \newcommand{\parens}[1]{\left({#1}\right)}
 \newcommand{\ang}[1]{\left\langle#1\right\rangle}
 \newcommand{\ve}{\varepsilon_0}
-\newcommand{\grad}{\nabla}
 \newcommand{\pd}{\partial}
 \newcommand{\del}{\vec{\grad}}
-\newcommand{\p}[1]{\frac{\pd}{\pd #1}}
+\newcommand{\p}[1]{\frac{\pd}{\pd #1}} % deprecated in favour of the physics package's 'pdv'
 \newcommand{\eq}[1]{\begin{eqnarray} #1 \end{eqnarray}}
 \renewcommand{\eqno}[1]{\begin{eqnarray*} #1 \end{eqnarray*}}
 \newcommand{\spleq}[1]{\begin{equation}\begin{split} #1 \end{split}\end{equation}}
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\renewcommand{\set}[1]{\{#1\}}
 % credit: https://tex.stackexchange.com/questions/22100/the-bar-and-overline-commands
 \newcommand{\la}{\mathcal{L}}
-\newcommand{\pn}[2]{\frac{\pd #1}{\pd #2}}
+\newcommand{\pn}[2]{\frac{\pd #1}{\pd #2}} %deprecated in favour of the physics package's 'pdv'
 \def\sr{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{ScriptR}}$}} \hspace{-.04in}}
 \def\brcurs{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{BoldR}}$}} \hspace{-.04in}}
 \def\hrcurs{{\mbox{$\hat \brcurs$}}}
