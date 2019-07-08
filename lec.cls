@@ -87,15 +87,15 @@
 	\fi
 }
 
-\newcommand{\lecture}[2]{
-	\stepcounter{lecnum}
-	\lecheader{#1}{#2}{\thelecnum}{Lecture}{Lecturer}{\show@lecturer}
-	\addcontentsline{toc}{section}{\protect\textbf{Lecture \thelecnum: #2}}
+\newcommand{\lecture}[3]{
+	%\stepcounter{lecnum}
+	\lecheader{#2}{#3}{#1}{Lecture}{Lecturer}{\show@lecturer}
+	\addcontentsline{toc}{section}{\protect\textbf{Lecture #1: #3}}
 }
 
-\newcommand{\lab}[2]{
-	\stepcounter{labnum}
-	\lecheader{#1}{#2}{Lab}{\thelabnum}{Lab Instructor}{\show@labTA}
+\newcommand{\lab}[3]{
+	%\stepcounter{labnum}
+	\lecheader{#2}{#3}{Lab}{#1}{Lab Instructor}{\show@labTA}
 }
 
 \newcommand{\skiplab}{

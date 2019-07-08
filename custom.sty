@@ -3,7 +3,7 @@
 \def\shrug{\texttt{\raisebox{0.75em}{\char`\_}\char`\\\char`\_\kern-0.5ex(\kern-0.25ex\raisebox{0.25ex}{\rotatebox{45}{\raisebox{-.75ex}"\kern-1.5ex\rotatebox{-90})}}\kern-0.5ex)\kern-0.5ex\char`\_/\raisebox{0.75em}{\char`\_}}}
 % credit: Sebastien Whetsel
 
-\RequirePackage{amsmath,amsthm,amssymb,braket}
+\RequirePackage{amsmath,amsthm,amssymb,braket,mathtools}
 \RequirePackage{enumerate,enumitem}
 \RequirePackage{physics}
 \RequirePackage{tikz}
@@ -11,7 +11,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}} 
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Proj}{\mathrm{proj}}
 \newcommand{\Perp}{\mathrm{perp}}
@@ -23,17 +23,20 @@
 \renewcommand{\det}[1]{\begin{vmatrix}#1\end{vmatrix}}
 \newcommand{\ul}[1]{\underline{#1}}
 \newcommand{\lst}[1]{\left[{#1}\right]}
-\newcommand{\parens}[1]{\left({#1}\right)}
-\newcommand{\ang}[1]{\left\langle#1\right\rangle}
+\DeclarePairedDelimiter{\parens}{(}{)}
+\DeclarePairedDelimiter{\ang}{\langle}{\rangle}
+\DeclareMathOperator\sign{sgn}
 \newcommand{\ve}{\varepsilon_0}
 \newcommand{\pd}{\partial}
 \newcommand{\del}{\vec{\grad}}
 \newcommand{\p}[1]{\frac{\pd}{\pd #1}} % deprecated in favour of the physics package's 'pdv'
-\newcommand{\eq}[1]{\begin{eqnarray} #1 \end{eqnarray}}
-\renewcommand{\eqno}[1]{\begin{eqnarray*} #1 \end{eqnarray*}}
+\newcommand{\eqnum}[1]{\begin{align} #1 \end{align}}
+\newcommand{\eq}[1]{\begin{align*} #1 \end{align*}}
 \newcommand{\spleq}[1]{\begin{equation}\begin{split} #1 \end{split}\end{equation}}
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 \renewcommand{\set}[1]{\{#1\}}
+\newcommand{\limtoinf}{\lim\limits_{n\to +\infty}}
+\newcommand{\limtominf}{\lim\limits_{n\to -\infty}}
 % credit: https://tex.stackexchange.com/questions/22100/the-bar-and-overline-commands
 \newcommand{\la}{\mathcal{L}}
 \newcommand{\pn}[2]{\frac{\pd #1}{\pd #2}} %deprecated in favour of the physics package's 'pdv'
@@ -42,6 +45,8 @@
 \def\hrcurs{{\mbox{$\hat \brcurs$}}}
 % from David Griffiths' sample
 \DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\st}{s.t.}
 
 \newtheorem{definition}{Definition}%[section]
+\newtheorem*{case}{Case}
 %\newenvironment{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}
