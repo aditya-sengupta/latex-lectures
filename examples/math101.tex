@@ -1,0 +1,18 @@
+\documentclass{lec}
+\usepackage{math101}
+\usepackage{subfiles}
+
+\begin{document}
+
+    \maketitle
+    \tableofcontents
+    \let\tableofcontents\relax
+
+    \setboolean{done}{false}
+    \newcommand\thefilename{}
+    \whiledo {\not{\boolean{done}}}{
+        \stepcounter{lecnum}
+        \renewcommand\thefilename{lecs/lec\thelecnum.tex}
+        \IfFileExists{./\thefilename}{\subfile{\thefilename}}{\setboolean{done}{true}}
+    }
+\end{document}

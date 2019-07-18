@@ -22,12 +22,14 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{url}
 \RequirePackage{custom}
+\RequirePackage{ifthen} % THE IRONY
 % to do: separate content dependencies (in 'custom') from format dependencies (here)
 
 \newcounter{lecnum}
 \newcounter{labnum}
 \newcounter{fignum}[lecnum]
-
+\newboolean{done}
+\setboolean{done}{true}
 
 \def\@course{None}
 \newcommand{\setcourse}[1]{\def\@course{#1}}
@@ -52,7 +54,7 @@
 %\makeatletter \let\l@subsection\l@subsubsection \makeatother
 \renewcommand*\l@section{\@dottedtocline{1}{1.5em}{3.0em}}
 \setcounter{tocdepth}{1}
-\title{Notes for \@course, UC Berkeley \@semester}
+\title{Notes for \@course\\ UC Berkeley \@semester}
 \author{Aditya Sengupta}
 
 \newcommand{\lecheader}[6]{
