@@ -1,4 +1,4 @@
-\ProvidesClass{hw}[2019-03-08 v3.1 Homework]
+\ProvidesClass{hw}[2019-07-22 v3.2 Homework]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -38,6 +38,10 @@
 \def\@semester{None}
 \newcommand{\setsemester}[1]{\def\@semester{#1}}
 \newcommand{\show@semester}{\@semester}
+
+\def\@lecturer{None}
+\newcommand{\setlecturer}[1]{\def\@lecturer{#1}}
+\newcommand{\show@lecturer}{\@lecturer} % jank unused
 
 \def\@hwnum{None}
 \newcommand{\sethwnum}[1]{\def\@hwnum{#1}}

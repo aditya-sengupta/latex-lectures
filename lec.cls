@@ -1,6 +1,6 @@
 % This LaTeX class is adapted from a template for lecture notes for CS267,
 % Applications of Parallel Computing, UC Berkeley EECS Department.
-\ProvidesClass{lec}[2019-04-16 v2.2 Lecture Notes]
+\ProvidesClass{lec}[2019-07-24 v3.2 Lecture Notes]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -22,7 +22,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{url}
 \RequirePackage{custom}
-\RequirePackage{ifthen} % THE IRONY
+\RequirePackage{ifthen}
 % to do: separate content dependencies (in 'custom') from format dependencies (here)
 
 \newcounter{lecnum}
@@ -77,15 +77,18 @@
 	\end{center}
 	\markboth{#4 #3: #1}{#4 #3: #1}
 	\setcounter{equation}{0}
+	\setcounter{definition}{0}
 	\renewcommand{\thepage}{\arabic{page}}
 	\renewcommand{\thesection}{#3.\arabic{section}}
 	\renewcommand{\theequation}{#3.\arabic{equation}}
 	\renewcommand{\thefigure}{#3.\arabic{figure}}
 	\renewcommand{\thetable}{#3.\arabic{table}}
+	\renewcommand{\thetheorem}{#3.\arabic{theorem}}
+	\renewcommand{\thedefinition}{#3.\arabic{definition}}
 	\rhead{#4 \thepage}
 
 	\ifnum#3=1
-		{\bf Note}: {\it \LaTeX \ format adapted from template courtesy of UC Berkeley EECS dept.}
+		{\bf Note}: {\it \LaTeX \ format adapted from template for lecture notes from CS 267, Applications of Parallel Computing, UC Berkeley EECS department.}
 	\fi
 }
 
