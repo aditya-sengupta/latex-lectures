@@ -27,6 +27,7 @@
 
 \newcounter{lecnum}
 \newcounter{labnum}
+\newcounter{disnum}
 \newcounter{fignum}[lecnum]
 \newboolean{done}
 \setboolean{done}{true}
@@ -43,12 +44,17 @@
 \newcommand{\setlabTA}[1]{\def\@labTA{#1}}
 \newcommand{\show@labTA}{\@labTA}
 
+\def\@GSI{None}
+\newcommand{\setGSI}[1]{\def\@GSI{#1}}
+\newcommand{\show@GSI}{\@GSI}
+
 \def\@semester{None}
 \newcommand{\setsemester}[1]{\def\@semester{#1}}
 \newcommand{\show@semester}{\@semester}
 
 \setcounter{lecnum}{0}
 \setcounter{labnum}{0}
+\setcounter{disnum}{0}
 
 %\makeatletter \let\l@section\l@subsection \makeatother
 %\makeatletter \let\l@subsection\l@subsubsection \makeatother
@@ -75,7 +81,7 @@
 				\vspace{2mm}}
 		}
 	\end{center}
-	\markboth{#4 #3: #1}{#4 #3: #1}
+	\markboth{#4 #3: #2}{#4 #3: #2}
 	\setcounter{equation}{0}
 	\setcounter{definition}{0}
 	\renewcommand{\thepage}{\arabic{page}}
@@ -100,7 +106,12 @@
 
 \newcommand{\lab}[3]{
 	%\stepcounter{labnum}
-	\lecheader{#2}{#3}{Lab}{#1}{Lab Instructor}{\show@labTA}
+	\lecheader{#2}{#3}{#1}{Lab}{Lab Instructor}{\show@labTA}
+}
+
+\newcommand{\discussion}[3]{
+	%\stepcounter{labnum}
+	\lecheader{#2}{#3}{#1}{Discussion}{GSI}{\show@GSI}
 }
 
 \newcommand{\skiplab}{
