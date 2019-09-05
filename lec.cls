@@ -102,6 +102,7 @@
 	%\stepcounter{lecnum}
 	\lecheader{#2}{#3}{#1}{Lecture}{Lecturer}{\show@lecturer}
 	\addcontentsline{toc}{section}{\protect\textbf{Lecture #1: #3}}
+	\setcounter{lecnum}{#1}
 }
 
 \newcommand{\lab}[3]{
@@ -142,4 +143,40 @@
 \newtheorem{claim}[theorem]{Claim}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{remark}[theorem]{Remark}
-\newtheorem{example}[theorem]{Example}
+
+% importing the example envt from https://hbfs.wordpress.com/2015/03/17/a-simple-latex-example-environment/
+
+\RequirePackage{calc}
+\RequirePackage{tabto}
+\RequirePackage{tikz}
+\RequirePackage[framemethod=tikz]{mdframed} % for colored backgrounds
+\newcommand{\halmos}{$\square$} % makes a box at the end
+
+\newlength{\framedinnerleftmargin}
+\newlength{\framedinnertopmargin}
+\newlength{\framedreversedinnerleftmargin}
+\setlength{\framedinnerleftmargin}{\widthof{Theorem 10.10.10}+2em}
+\setlength{\framedreversedinnerleftmargin}{\widthof{Theorem 10.10.10}+1em}
+\setlength{\framedinnertopmargin}{1em}
+
+% first argument: label in upper left corner,
+% second argument: background color
+\newenvironment{boxedtext}[2]{\begin{mdframed}[%
+hidealllines=true,%
+backgroundcolor=#2,%
+innertopmargin=\framedinnertopmargin,%
+innerleftmargin=\framedinnerleftmargin,%
+innerrightmargin=1em%
+]%
+\tabto{-\framedreversedinnerleftmargin}\textbf{#1}\tabto*{0em}%
+}% begin code
+{\hskip 0pt\\\hspace*{\fill}\halmos{}\end{mdframed}\vspace{1em}} % end code
+
+\newenvironment{summary}[0]{\begin{center}\begin{minipage}[c]{\summarywidth}\begin{spacing}{0.9}\footnotesize} % begin code
+{\end{spacing}\end{minipage}\end{center}} % end code
+
+\newcounter{example}
+
+\newenvironment{example}[0]
+{\refstepcounter{example}\vspace{1em plus 1em}\begin{boxedtext}{Example \thelecnum.\theexample.}{blue!7}}%\setlength{\parskip}{0em}}
+{\end{boxedtext}\vspace{-1em plus 1em}}
