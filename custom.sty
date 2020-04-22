@@ -7,6 +7,10 @@
 \RequirePackage{enumerate,enumitem}
 \RequirePackage{physics}
 \RequirePackage{tikz}
+\RequirePackage[hyphens]{url}
+\RequirePackage{ulem}
+\RequirePackage{bbm}
+\RequirePackage{multicol}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
@@ -23,7 +27,7 @@
 \renewcommand{\det}[1]{\begin{vmatrix}#1\end{vmatrix}}
 \newcommand{\ul}[1]{\underline{#1}}
 \newcommand{\lst}[1]{\left[{#1}\right]}
-\newcommand{\Intersection}{\bigcap}
+\newcommand{\Intersect}{\bigcap}
 \newcommand{\intersect}{\cap}
 \newcommand{\Union}{\bigcup}
 \newcommand{\union}{\cup}
@@ -45,6 +49,7 @@
 % credit: https://tex.stackexchange.com/questions/22100/the-bar-and-overline-commands
 \newcommand{\la}{\mathcal{L}}
 \newcommand{\pn}[2]{\frac{\pd #1}{\pd #2}} %deprecated in favour of the physics package's 'pdv'
+\newcommand{\squig}{\xi}
 \def\sr{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{ScriptR}}$}} \hspace{-.04in}}
 \def\brcurs{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{BoldR}}$}} \hspace{-.04in}}
 \def\hrcurs{{\mbox{$\hat \brcurs$}}}
@@ -53,4 +58,3 @@
 
 \newtheorem{definition}{Definition}%[section]
 \newtheorem*{case}{Case}
-%\newenvironment{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}

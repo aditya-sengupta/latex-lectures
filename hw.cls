@@ -6,7 +6,7 @@
 \ProcessOptions \relax
 \LoadClass{article}
 
-\RequirePackage[margin=1in]{geometry}
+\RequirePackage[margin=0.5in]{geometry}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english]{babel}
 %\RequirePackage{tikz}
@@ -43,6 +43,11 @@
 \newcommand{\setlecturer}[1]{\def\@lecturer{#1}}
 \newcommand{\show@lecturer}{\@lecturer} % jank unused
 
+\def\@GSI{None}
+\newcommand{\setGSI}[1]{\def\@GSI{#1}}
+\newcommand{\show@GSI}{\@GSI} % ditto
+
+
 \def\@hwnum{None}
 \newcommand{\sethwnum}[1]{\def\@hwnum{#1}}
 \newcommand{\show@hwnum}{\@hwnum}
@@ -53,7 +58,7 @@
 
 \setassntype{Homework}
 
-\title{\bf \show@course\\ \show@assntype \ \show@hwnum}
+\title{\show@course\\ \show@assntype \ \show@hwnum}
 \author{Aditya Sengupta}
 
 \newcounter{probnum}

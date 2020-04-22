@@ -20,7 +20,6 @@
 \RequirePackage{lipsum}
 \RequirePackage{fancyvrb}
 \RequirePackage{fancyhdr}
-\RequirePackage{url}
 \RequirePackage{custom}
 \RequirePackage{ifthen}
 % to do: separate content dependencies (in 'custom') from format dependencies (here)
@@ -68,6 +67,7 @@
 	\thispagestyle{plain}
 	\newpage
 	\setcounter{section}{0}
+	\setcounter{example}{0}
 	\noindent
 	\begin{center}
 		\framebox{
