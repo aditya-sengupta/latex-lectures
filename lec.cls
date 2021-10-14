@@ -59,7 +59,7 @@
 %\makeatletter \let\l@subsection\l@subsubsection \makeatother
 \renewcommand*\l@section{\@dottedtocline{1}{1.5em}{3.0em}}
 \setcounter{tocdepth}{1}
-\title{Notes for \@course\\ UC Berkeley \@semester}
+\title{Notes for \@course\\ University of Cambridge, \@semester}
 \author{Aditya Sengupta}
 
 \newcommand{\lecheader}[6]{
