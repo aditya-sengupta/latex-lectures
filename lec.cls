@@ -22,6 +22,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{custom}
 \RequirePackage{ifthen}
+\RequirePackage{newpxtext} % better font i think
 % to do: separate content dependencies (in 'custom') from format dependencies (here)
 
 \newcounter{lecnum}
@@ -143,6 +144,7 @@
 \newtheorem{claim}[theorem]{Claim}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
 
 % importing the example envt from https://hbfs.wordpress.com/2015/03/17/a-simple-latex-example-environment/
 

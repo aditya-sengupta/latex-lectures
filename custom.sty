@@ -1,4 +1,4 @@
-%[2019-07-24 v1.2 Custom Style]
+%[2021-10-18 v1.3 Custom Style]
 
 \def\shrug{\texttt{\raisebox{0.75em}{\char`\_}\char`\\\char`\_\kern-0.5ex(\kern-0.25ex\raisebox{0.25ex}{\rotatebox{45}{\raisebox{-.75ex}"\kern-1.5ex\rotatebox{-90})}}\kern-0.5ex)\kern-0.5ex\char`\_/\raisebox{0.75em}{\char`\_}}}
 % credit: Sebastien Whetsel
@@ -17,6 +17,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Q}{\mathbb{Q}}
+\newcommand{\wfive}{which was what we wanted.}
 \newcommand{\Proj}{\mathrm{proj}}
 \newcommand{\Perp}{\mathrm{perp}}
 \newcommand{\proj}{\mathrm{proj}}
@@ -33,10 +34,9 @@
 \newcommand{\union}{\cup}
 \newcommand{\parens}[1]{\left(#1\right)}
 \DeclarePairedDelimiter{\ang}{\langle}{\rangle} % to be deprecated
-\def\({\left(}
-\def\){\right)}
-\def\<{\left\langle}
-\def\>{\right\rangle}
+\DeclarePairedDelimiter{\pr}{(}{)}
+
+
 \newcommand{\ve}{\varepsilon_0}
 \newcommand{\pd}{\partial}
 \newcommand{\del}{\vec{\grad}}
