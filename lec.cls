@@ -1,6 +1,6 @@
 % This LaTeX class is adapted from a template for lecture notes for CS267,
 % Applications of Parallel Computing, UC Berkeley EECS Department.
-\ProvidesClass{lec}[2019-07-24 v3.2 Lecture Notes]
+\ProvidesClass{lec}[2022-11-28 v3.3 Lecture Notes]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
@@ -52,6 +52,10 @@
 \newcommand{\setsemester}[1]{\def\@semester{#1}}
 \newcommand{\show@semester}{\@semester}
 
+\def\@inst{None}
+\newcommand{\setinst}[1]{\def\@inst{#1}}
+\newcommand{\show@inst}{\@inst}
+
 \setcounter{lecnum}{0}
 \setcounter{labnum}{0}
 \setcounter{disnum}{0}
@@ -60,7 +64,7 @@
 %\makeatletter \let\l@subsection\l@subsubsection \makeatother
 \renewcommand*\l@section{\@dottedtocline{1}{1.5em}{3.0em}}
 \setcounter{tocdepth}{1}
-\title{Notes for \@course\\ University of Cambridge, \@semester}
+\title{Notes for \@course\\ \@inst, \@semester}
 \author{Aditya Sengupta}
 
 \newcommand{\lecheader}[6]{
